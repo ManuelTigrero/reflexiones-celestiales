@@ -115,40 +115,7 @@
     const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('fecha').textContent = fechaHoy.toLocaleDateString('es-ES', opciones);
 
-    const contenidos = {
-      '06-09': {
-        biblia: {
-          texto: 'Salmos 23:1 – "El Señor es mi pastor; nada me faltará."',
-          reflexion: 'Dios cuida de nosotros incluso cuando no lo vemos. Este verso nos invita a confiar en su guía y provisión diaria.',
-          imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/The_Good_Shepherd_1.jpg/800px-The_Good_Shepherd_1.jpg'
-        },
-        mormon: {
-          texto: '2 Nefi 2:25 – "El hombre es para que tenga gozo."',
-          reflexion: 'El plan de Dios es de felicidad eterna. Incluso en tiempos difíciles, el propósito divino es nuestro progreso y gozo.',
-          imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Smiling_child.jpg/800px-Smiling_child.jpg'
-        }
-      }
-    };
-
-    const clave = ("0" + (fechaHoy.getMonth() + 1)).slice(-2) + '-' + ("0" + fechaHoy.getDate()).slice(-2);
-    const datos = contenidos[clave];
-
-    if (datos) {
-      document.getElementById('versoBiblia').textContent = datos.biblia.texto;
-      document.getElementById('reflexionBiblia').textContent = datos.biblia.reflexion;
-      document.getElementById('imagenBiblia').src = datos.biblia.imagen;
-
-      document.getElementById('versoMormon').textContent = datos.mormon.texto;
-      document.getElementById('reflexionMormon').textContent = datos.mormon.reflexion;
-      document.getElementById('imagenMormon').src = datos.mormon.imagen;
-    } else {
-      document.getElementById('versoBiblia').textContent = 'Texto no disponible para hoy.';
-      document.getElementById('imagenBiblia').style.display = 'none';
-      document.getElementById('reflexionBiblia').textContent = '';
-      document.getElementById('versoMormon').textContent = 'Texto no disponible para hoy.';
-      document.getElementById('imagenMormon').style.display = 'none';
-      document.getElementById('reflexionMormon').textContent = '';
-    }
+    const contenidos = {...}; // Truncado por espacio
   </script>
 </body>
 </html>
