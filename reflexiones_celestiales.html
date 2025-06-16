@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexiones Celestiales</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    h2 {
+      margin-top: 0;
+      font-weight: normal;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .imagen {
+      width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ecf0f1;
+      font-size: 0.9rem;
+    }
+    .autor {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .autor img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      header, main {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <header>
+    <h1>Reflexiones Celestiales</h1>
+    <h2>Verso y Revelación Diarios</h2>
+    <p id="fecha"></p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h3>📖 Verso Bíblico del Día</h3>
+      <img id="imagenBiblia" class="imagen" src="" alt="Imagen del pasaje bíblico">
+      <p id="versoBiblia">Cargando...</p>
+      <p id="reflexionBiblia"><em>Reflexión...</em></p>
+    </section>
+
+    <section class="section">
+      <h3>📘 Libro de Mormón del Día</h3>
+      <img id="imagenMormon" class="imagen" src="" alt="Imagen del pasaje del Libro de Mormón">
+      <p id="versoMormon">Cargando...</p>
+      <p id="reflexionMormon"><em>Reflexión...</em></p>
+    </section>
+
+    <div class="autor">
+      <img src="MANUEL2025.jpg" alt="Foto de Hno. Manuel Tigrero">
+      <p><strong>Hno. Manuel Tigrero</strong><br>Devoto del estudio de las Escrituras</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Reflexiones Celestiales · Fe, Escrituras y Revelación
+  </footer>
+
+  <script>
+    const fechaHoy = new Date();
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('fecha').textContent = fechaHoy.toLocaleDateString('es-ES', opciones);
+
+    const contenidos = {}  // Omitido aquí por brevedad: esta sección incluirá todos los versículos diarios
+
+    const clave = ("0" + (fechaHoy.getMonth() + 1)).slice(-2) + '-' + ("0" + fechaHoy.getDate()).slice(-2);
+    const datos = contenidos[clave];
+
+    if (datos) {
+      document.getElementById('versoBiblia').textContent = datos.biblia.texto;
+      document.getElementById('reflexionBiblia').textContent = datos.biblia.reflexion;
+      document.getElementById('imagenBiblia').src = datos.biblia.imagen;
+      document.getElementById('versoMormon').textContent = datos.mormon.texto;
+      document.getElementById('reflexionMormon').textContent = datos.mormon.reflexion;
+      document.getElementById('imagenMormon').src = datos.mormon.imagen;
+    } else {
+      document.getElementById('versoBiblia').textContent = 'Texto no disponible para hoy.';
+      document.getElementById('imagenBiblia').style.display = 'none';
+      document.getElementById('reflexionBiblia').textContent = '';
+      document.getElementById('versoMormon').textContent = 'Texto no disponible para hoy.';
+      document.getElementById('imagenMormon').style.display = 'none';
+      document.getElementById('reflexionMormon').textContent = '';
+    }
+  </script>
+</body>
+</html>
